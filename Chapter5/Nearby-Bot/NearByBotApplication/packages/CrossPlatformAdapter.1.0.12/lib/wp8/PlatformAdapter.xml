@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PlatformAdapter</name>
+    </assembly>
+    <members>
+        <member name="T:CrossPlatformAdapter.ProbingStrategies.PlatformProbingStrategy">
+            <summary>
+            PlatformProbingStrategy is a registration convention which adds the string ".Platform"
+            to the platform-agnostic assembly name in order to resolve the platform-specific assembly.
+            Furthermore, platform-specific types are made of interface type name excluding the leading string "I".
+            </summary>
+        </member>
+        <member name="T:CrossPlatformAdapter.ProbingStrategies.DefaultProbingStrategy">
+            <summary>
+            DefaultProbingStrategy is a registration convention which probes inside the assembly
+            where the given interface type was found.
+            Platform-specific types are made of interface type name excluding the leading string "I".
+            </summary>
+        </member>
+        <member name="T:CrossPlatformAdapter.IProbingStrategy">
+            <summary>
+            IProbingStrategy interface is used to define conversion rules
+            to convert platform-agnostics to platform-specifics.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformAdapter.IProbingStrategy.PlatformNamingConvention(System.Reflection.AssemblyName)">
+            <summary>
+            Transforms a platform-agnostic assembly name into a platform-specific assembly name.
+            </summary>
+            <param name="assemblyName">The assembly name of the platform-agnostic assembly.</param>
+            <returns>The assembly name of the platform-specific assembly as a string.</returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IProbingStrategy.InterfaceToClassNamingConvention(System.Type)">
+            <summary>
+            Transforms a platform-agnostic interface into a platform-specific type name.
+            </summary>
+            <param name="interfaceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.Resolve``1(System.Object[])">
+            <summary>
+            Resolves a platform-specific object for a given interface type TInterface
+            using the configured registration convention.
+            </summary>
+            <typeparam name="TInterface">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </typeparam>
+            <param name="args">Constructor parameters which are eventually needed to create the platform-specific object.</param>
+            <returns>The platform-specific object which implements interface type TInterface.</returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.Resolve(System.Type,System.Object[])">
+            <summary>
+            Resolves a platform-specific object for a given interface type TInterface
+            using the configured registration convention.
+            </summary>
+            <param name="interfaceType">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </param>
+            <param name="args">Constructor parameters which are eventually needed to create the platform-specific object.</param>
+            <returns>The platform-specific object which implements interface type TInterface.</returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.TryResolve``1(System.Object[])">
+            <summary>
+            Tries to resolve a platform-specific object for a given interface type TInterface
+            using the configured registration convention.
+            </summary>
+            <typeparam name="TInterface">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </typeparam>
+            <param name="args">Constructor parameters which are eventually needed to create the platform-specific object.</param>
+            <returns>
+            The platform-specific object which implements the given interface type.
+            If the platform-specific assembly or the desired type cannot be found, TryResolve returns null.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.TryResolve(System.Type,System.Object[])">
+            <summary>
+            Tries to resolve a platform-specific object for a given interface type TInterface
+            using the configured registration convention.
+            </summary>
+            <param name="interfaceType">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </param>
+            <param name="args">Constructor parameters which are eventually needed to create the platform-specific object.</param>
+            <returns>
+            The platform-specific object which implements the given interface type.
+            If the platform-specific assembly or the desired type cannot be found, TryResolve returns null.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.ResolveClassType``1">
+            <summary>
+            Resolves a class type based on the given interface type
+            using the configured registration convention.
+            </summary>
+            <typeparam name="TInterface">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </typeparam>
+            <returns>The platform-specific class type which implements the given interface type.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.ResolveClassType(System.Type)">
+            <summary>
+            Resolves a class type based on the given interface type
+            using the configured registration convention.
+            </summary>
+            <param name="interfaceType">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </param>
+            <returns>The platform-specific class type which implements the given interface type.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.TryResolveClassType``1">
+            <summary>
+            Resolves a class type based on the given interface type
+            using the configured registration convention.
+            </summary>
+            <typeparam name="TInterface">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </typeparam>
+            <returns>The platform-specific class type which implements the given interface type.
+            If the platform-specific assembly or the desired type cannot be found, TryResolve returns null.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.TryResolveClassType(System.Type)">
+            <summary>
+            Resolves a class type based on the given interface type
+            using the configured registration convention.
+            </summary>
+            <param name="interfaceType">
+            The platform-agnostic interface type 
+            for which we want to find a platform-specific implementation.
+            </param>
+            <returns>The platform-specific class type which implements the given interface type.
+            If the platform-specific assembly or the desired type cannot be found, TryResolve returns null.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformAdapter.IAdapterResolver.AddProbingStrategy(CrossPlatformAdapter.IProbingStrategy)">
+            <summary>
+            Adds a new probing strategy which will be used to lookup platform-specific assemblies/types.
+            </summary>
+            <param name="probingStrategy"></param>
+        </member>
+        <member name="T:CrossPlatformAdapter.PlatformAdapter">
+            <summary>
+            PlatformAdapter provides access to an IAdapterResolver implementation.
+            </summary>
+            <remarks>
+            Consider using a dependency management framework instead of this PlatformAdapter.
+            </remarks>
+        </member>
+        <member name="M:CrossPlatformAdapter.PlatformAdapter.SetResolver(CrossPlatformAdapter.IAdapterResolver)">
+            <summary>
+            SetResolver can be used to inject another IAdapterResolver instance
+            for unit testing purposes.
+            </summary>
+            <param name="resolver"></param>
+        </member>
+        <member name="P:CrossPlatformAdapter.PlatformAdapter.Current">
+            <summary>
+            Returns a singleton instance of an IAdapterResolver.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.#ctor">
+            <summary>
+            Default constructor.
+            Uses DefaultProbingStrategy in order to resolve platform-specific assemblies.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.AddProbingStrategy(CrossPlatformAdapter.IProbingStrategy)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.Resolve``1(System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.Resolve(System.Type,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.TryResolve(System.Type,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.Resolve(System.Type,System.Boolean,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.ResolveClassType``1">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.ResolveClassType(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.TryResolveClassType``1">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformAdapter.ProbingAdapterResolver.TryResolveClassType(System.Type)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

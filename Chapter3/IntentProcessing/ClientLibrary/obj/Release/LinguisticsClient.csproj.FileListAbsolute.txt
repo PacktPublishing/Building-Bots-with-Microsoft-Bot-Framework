@@ -1,0 +1,13 @@
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Release\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Release\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Release\Newtonsoft.Json.dll
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Release\Newtonsoft.Json.xml
+D:\Bots\NearByBotApplication\ClientLibrary\obj\Release\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\NearByBotApplication\ClientLibrary\obj\Release\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\IntentProcessing\ClientLibrary\bin\Release\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\IntentProcessing\ClientLibrary\bin\Release\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\IntentProcessing\ClientLibrary\bin\Release\Newtonsoft.Json.dll
+D:\Bots\IntentProcessing\ClientLibrary\bin\Release\Newtonsoft.Json.xml
+D:\Bots\IntentProcessing\ClientLibrary\obj\Release\LinguisticsClient.csprojResolveAssemblyReference.cache
+D:\Bots\IntentProcessing\ClientLibrary\obj\Release\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\IntentProcessing\ClientLibrary\obj\Release\Microsoft.ProjectOxford.Linguistics.pdb

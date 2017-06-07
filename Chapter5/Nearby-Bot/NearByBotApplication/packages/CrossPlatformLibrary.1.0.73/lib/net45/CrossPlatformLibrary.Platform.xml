@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CrossPlatformLibrary.Platform</name>
+    </assembly>
+    <members>
+        <member name="T:CrossPlatformLibrary.CrossPlatformApplication">
+            <summary>
+            CrossPlatformApplication manages the bootstrapping events of this application.
+            </summary>
+        </member>
+    </members>
+</doc>

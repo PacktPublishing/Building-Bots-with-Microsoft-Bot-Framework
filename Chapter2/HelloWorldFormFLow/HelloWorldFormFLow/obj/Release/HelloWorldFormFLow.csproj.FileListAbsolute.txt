@@ -1,0 +1,39 @@
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Bot Application1.dll.config
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Bot Application1.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Bot Application1.pdb
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Autofac.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Chronic.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Bot.Builder.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Bot.Connector.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Rest.ClientRuntime.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.WindowsAzure.Configuration.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Newtonsoft.Json.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Net.Http.Formatting.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Web.Http.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Web.Http.WebHost.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Autofac.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Bot.Builder.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Bot.Connector.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.Rest.ClientRuntime.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Microsoft.WindowsAzure.Configuration.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\Newtonsoft.Json.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.IdentityModel.Tokens.Jwt.pdb
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Net.Http.Formatting.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Web.Http.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\System.Web.Http.WebHost.xml
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\ar\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\en\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\es\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\fa\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\fr\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\ja\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\ru\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\obj\Release\HelloWorldFormFLow.csprojResolveAssemblyReference.cache
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\obj\Release\Bot Application1.dll
+D:\Bots\HelloWorld\HelloWorldFormFLow\HelloWorldFormFLow\obj\Release\Bot Application1.pdb

@@ -1,0 +1,1261 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CrossPlatformLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException">
+            <summary>
+            The standard exception thrown when a <see cref="T:CrossPlatformLibrary.Bootstrapping.IBootstrapper"/> has an error on starting up an application or service.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.BootstrappingException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException"/> class.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.BootstrappingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException"/> class.
+            </summary>
+            <param name="message">The message that describes the exception.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.BootstrappingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException"/> class.
+            </summary>
+            <param name="message">The message that describes the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or <c>null</c> if no inner exception is specified.</param>
+        </member>
+        <member name="T:CrossPlatformLibrary.Bootstrapping.Bootstrapper">
+            <summary>
+            Provides an base implementation of <see cref="T:CrossPlatformLibrary.Bootstrapping.IBootstrapper"/> which has to be used to startup and shutdown
+            your application. The startup sequence contains some virtual method calls which can be overriden by your own
+            implementation of  <see cref="T:CrossPlatformLibrary.Bootstrapping.Bootstrapper"/>.
+            </summary>
+        </member>
+        <member name="F:CrossPlatformLibrary.Bootstrapping.Bootstrapper.simpleIoc">
+            <summary>
+            Gets the IOC/DI container of the application, which is being
+            created as part of the application initialization process.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.Startup">
+            <summary>
+            Runs the startup procedure of the bootstrapper.
+            </summary>
+            <exception cref="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException">An unknown exception occurred during the startup process.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.InternalConfigureDefaultTracerFactory">
+            <summary>
+            Configures a platform-specific default tracer factory.
+            Each target platform can configure
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.InternalConfigureExtensions">
+            <summary>
+            Make sure all plugin assemblies are loaded and configured accordingly.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.ConfigureExtensionAssemblyFilter">
+            <summary>
+            Returns a list of assembly names which shall be loaded at startup time.
+            The given assemblies may contain plugins which can be configured at boostrapping time using IContainerExtension interface.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.ConfigureExtensions(CrossPlatformLibrary.Tools.IPlatformServices)">
+            <summary>
+            Configures all extension which implement the IContainerExtension interface
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.HandleBootstrappingException(System.Exception)">
+            <summary>
+            A handler for bootstrapping errors occurring during startup and run.
+            </summary>
+            <param name="ex">The exception that has occurred.</param>
+            <returns>
+            <c>True</c> if the exception was handled by the method and can be ignored by the caller of this method, <c>false</c> otherwise.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.GetExceptionHandlerType">
+            <summary>
+            The purpose of the instance which will be created from the given type is to handle any <see cref="T:System.Exception"/>
+            which is not handled by the application.
+            </summary>
+            <remarks>When overridden by inheriting classes, this method must return a type which implements <see cref="T:CrossPlatformLibrary.ExceptionHandling.IExceptionHandler"/>.
+            If this method returns <c>null</c>, the <see cref="T:CrossPlatformLibrary.ExceptionHandling.Handlers.RethrowExceptionHandler"/> is used as default.</remarks>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.OnStartup">
+            <summary>
+            Does the actual start procedure for the application or service.
+            </summary>
+            <remarks>When implemented by inheriting classes, this method will show the shell form of the application or start the service.</remarks>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.ConfigureContainer(CrossPlatformLibrary.IoC.ISimpleIoc)">
+            <summary>
+            ConfigureContainer is called when all necessary dependencies are registered.
+            ConfigureContainer is intended to resolve dependencies and configure them before first use.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.Bootstrapper.OnShutdown">
+            <summary>
+            Does the actual shutdown procedure for the application or service.
+            </summary>
+            <remarks>When overridden by inheriting classes, this method will close the shell form of the application or stop the service.</remarks>
+        </member>
+        <member name="T:CrossPlatformLibrary.Bootstrapping.IBootstrapper">
+            <summary>
+            IBootstrapper is the application lifecycle manager and the entry point
+            of any application built with CrossPlatformLibrary.
+            </summary>
+        </member>
+        <member name="P:CrossPlatformLibrary.Bootstrapping.IBootstrapper.ApplicationLifecycle">
+            <summary>
+            Returns the current application lifecycle state.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.IBootstrapper.Startup">
+            <summary>
+            Runs the startup procedure of the bootstrapper.
+            </summary>
+            <exception cref="T:CrossPlatformLibrary.Bootstrapping.BootstrappingException">An unknown exception occurred during the startup process.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.IBootstrapper.Sleep">
+            <summary>
+            Runs all necessary actions to prepare the application for sleep mode.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.IBootstrapper.Resume">
+            <summary>
+            Runs the resume procedure in order to wake-up a sleeping application.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Bootstrapping.IBootstrapper.Shutdown">
+            <summary>
+            Runs the shutdown procedure.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.CrossPlatformLibrary">
+            <summary>
+            CrossPlatformLibrary is an extensible toolkit which provides a basic set of functionality 
+            used in most mobile apps such as bootstrapping, exception handling, tracing and UI dispatching.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.TypeExtensions.IsNullable(System.Type)">
+            <summary>
+                Checks if the given type is a Nullable type.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.TypeExtensions.GetDefaultValue(System.Type)">
+            <summary>
+                Returns the default value for the given type.
+            </summary>
+            <param name="type"></param>
+            <returns>Value type: Default instance. Reference type: null.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.TypeExtensions.IsCompilerGenerated(System.Type)">
+            <summary>
+            This method can be used to check if the given type is compiler generated or not.
+            Source: http://stackoverflow.com/questions/6513648/how-do-i-filter-out-c-displayclass-types-when-going-through-types-via-reflecti
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.ToObservableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                To the observable collection.
+            </summary>
+            <typeparam name="T">Generic type T.</typeparam>
+            <param name="enumerable">The enumerable.</param>
+            <returns>The resulting ObservableCollection&lt;T&gt;.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.Update``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Action{``0})">
+            <summary>
+            Updates all items in the specified source which match with selectorFunc with the specified updateAction.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="selectorFunc">The selector function.</param>
+            <param name="updateAction">The update action.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.UpdateSingle``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Action{``0})">
+            <summary>
+            Updates a single item in the given source using the selector function to find the item
+            and the update action to update it accordingly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="selectorFunc">The selector function.</param>
+            <param name="updateAction">The update action.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.AnyDuplicates``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Determines whether the specified search list contains duplicates.
+            </summary>
+            <typeparam name="T">The generic type T.</typeparam>
+            <typeparam name="TResult">The type of the T result.</typeparam>
+            <param name="searchList">The search list.</param>
+            <param name="selectionCriteria">The selection criteria.</param>
+            <returns><c>true</c> if the specified search list contains duplicates; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.Last(System.Collections.IEnumerable)">
+            <summary>
+            Returns the last object of source enumerable.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The source enumerable is null.</exception>
+            <exception cref="T:System.InvalidOperationException">The source enumerable does not contain any elements.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.EnumerableExtensions.LastOrDefault(System.Collections.IEnumerable)">
+            <summary>
+            Returns the last object of source enumerable.
+            If there are no items in source enumerable, it returns null.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The source enumerable is null.</exception>
+            <exception cref="T:System.InvalidOperationException">The source enumerable does not contain any elements.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.StringExtensions.#cctor">
+            <summary>
+                Initializes static members of the
+                <see cref="T:CrossPlatformLibrary.Extensions.StringExtensions" /> class.
+                A static constructor is called at most one time, before any instance constructor is invoked or member is accessed.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.StringExtensions.RemoveDiacritics(System.String)">
+            <summary>
+                Replaces the diacritics in the given source string.
+                See http://en.wikipedia.org/wiki/Diacritic for a complete list currently known of diacritics.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.StringExtensions.ToUri(System.String)">
+            <summary>
+                To the URI.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>Uri.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.StringExtensions.Like(System.String,System.String)">
+            <summary>
+                To the unique identifier.
+            </summary>
+            <returns>Guid.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.StringExtensions.ContainsAny(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Checks if any of the given strings is contained in source string.
+            </summary>
+            <param name="source">The source string.</param>
+            <param name="strings">The enumeration of strings to be compared against the source string.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CrossPlatformLibrary.IoC.IContainerExtension">
+            <summary>
+            Instances of IContainerExtension are detected via reflection at bootstrapping time.
+            This interface is intended to set-up the IoC container of library projects.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.IContainerExtension.Initialize(CrossPlatformLibrary.IoC.ISimpleIoc)">
+            <summary>
+            Allows to set-up the given container with plugin-specific dependencies. 
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="T:CrossPlatformLibrary.IoC.ISimpleIoc">
+            <summary>
+                A very simple IOC container with basic functionality needed to register and resolve
+                instances. If needed, this class can be replaced by another more elaborate
+                IOC container implementing the IServiceLocator interface.
+                The inspiration for this class is at https://gist.github.com/716137 but it has
+                been extended with additional features.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.ContainsCreated``1">
+            <summary>
+                Checks whether at least one instance of a given class is already created in the container.
+            </summary>
+            <typeparam name="TClass">The class that is queried.</typeparam>
+            <returns>True if at least on instance of the class is already created, false otherwise.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.ContainsCreated``1(System.String)">
+            <summary>
+                Checks whether the instance with the given key is already created for a given class
+                in the container.
+            </summary>
+            <typeparam name="TClass">The class that is queried.</typeparam>
+            <param name="key">The key that is queried.</param>
+            <returns>
+                True if the instance with the given key is already registered for the given class,
+                false otherwise.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.IsRegistered``1">
+            <summary>
+                Gets a value indicating whether a given type T is already registered.
+            </summary>
+            <typeparam name="T">The type that the method checks for.</typeparam>
+            <returns>True if the type is registered, false otherwise.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.IsRegistered(System.Type)">
+            <summary>
+                 Gets a value indicating whether a given type T is already registered.
+            </summary>
+            <param name="classType">The type that the method checks for.</param>
+            <returns>True if the type is registered, false otherwise.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.IsRegistered``1(System.String)">
+            <summary>
+                Gets a value indicating whether a given type T and a give key
+                are already registered.
+            </summary>
+            <typeparam name="T">The type that the method checks for.</typeparam>
+            <param name="key">The key that the method checks for.</param>
+            <returns>True if the type and key are registered, false otherwise.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``2(CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers a given type for a given interface.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Type,System.String,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers a given type for a given interface with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <param name="classType">The type that must be used to create instances.</param>
+            <param name="key">The key that the method checks for.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``2(System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers a given type for a given interface with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``2(System.String,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers a given type for a given interface with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+            <param name="key">The key for which the given instance is registered.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1">
+            <summary>
+                Registers a given type.
+            </summary>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Boolean)">
+            <summary>
+                Registers a given type with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Type,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers a given type for a given interface.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <param name="classType">The type that must be used to create instances.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.RegisterWithConvention``1(CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers an interface using the default probing strategy which will be used to resolve the concrete type from the given interface.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.RegisterWithConvention``1(CrossPlatformAdapter.IProbingStrategy,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <summary>
+                Registers an interface using a custom probing strategy which will be used to resolve the concrete type from the given interface.
+            </summary>
+            <typeparam name="TInterface">The interface for which instances will be resolved.</typeparam>
+            <param name="strategy">The strategy used to convert between the given interface type and the class.</param>
+            <param name="resolvedParameter">The resolve parameter which can be used to inject named dependencies.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Func{``0})">
+            <summary>
+                Registers a given instance for a given type.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Func{``0},System.Boolean)">
+            <summary>
+                Registers a given instance for a given type with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Func{``0},System.String)">
+            <summary>
+                Registers a given instance for a given type and a given key.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="key">The key for which the given instance is registered.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Register``1(System.Func{``0},System.String,System.Boolean)">
+            <summary>
+                Registers a given instance for a given type and a given key with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="key">The key for which the given instance is registered.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Reset">
+            <summary>
+                Resets the instance in its original states. This deletes all the
+                registrations.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Unregister``1">
+            <summary>
+                Unregisters a class from the cache and removes all the previously
+                created instances.
+            </summary>
+            <typeparam name="TClass">The class that must be removed.</typeparam>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Unregister``1(``0)">
+            <summary>
+                Removes the given instance from the cache. The class itself remains
+                registered and can be used to create other instances.
+            </summary>
+            <typeparam name="TClass">The type of the instance to be removed.</typeparam>
+            <param name="instance">The instance that must be removed.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Unregister``1(System.String)">
+            <summary>
+                Removes the instance corresponding to the given key from the cache. The class itself remains
+                registered and can be used to create other instances.
+            </summary>
+            <typeparam name="TClass">The type of the instance to be removed.</typeparam>
+            <param name="key">The key corresponding to the instance that must be removed.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.ISimpleIoc.Unregister(System.Type,System.String)">
+            <summary>
+                Removes the instance corresponding to the given key from the cache. The class itself remains
+                registered and can be used to create other instances.
+            </summary>
+            <param name="classType"></param>
+            <param name="key">The key corresponding to the instance that must be removed.</param>
+        </member>
+        <member name="T:CrossPlatformLibrary.IoC.PreferredConstructorAttribute">
+            <summary>
+                When used with the SimpleIoc container, specifies which constructor
+                should be used to instantiate when GetInstance is called.
+                If there is only one constructor in the class, this attribute is
+                not needed.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.IoC.SimpleIoc">
+            <summary>
+                A very simple IOC container with basic functionality needed to register and resolve
+                instances. If needed, this class can be replaced by another more elaborate
+                IOC container implementing the IServiceLocator interface.
+                The inspiration for this class is at https://gist.github.com/716137 but it has
+                been extended with additional features.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.ContainsCreated``1">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.ContainsCreated``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.IsRegistered``1">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.IsRegistered(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.IsRegistered``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.RegisterWithConvention``1(CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.RegisterWithConvention``1(CrossPlatformAdapter.IProbingStrategy,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``2(CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Type,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Type,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``2(System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``2(System.String,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Type,System.String,System.Boolean,CrossPlatformLibrary.IoC.IResolvedParameter[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Boolean)">
+            <summary>
+                Registers a given type with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that must be used to create instances.</typeparam>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register(System.Type,System.String,System.Boolean)">
+            <summary>
+                Registers a given type with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <param name="classType"></param>
+            <param name="key">The key for which the given instance is registered.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Func{``0})">
+            <summary>
+                Registers a given instance for a given type.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Func{``0},System.Boolean)">
+            <summary>
+                Registers a given instance for a given type with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Func{``0},System.String)">
+            <summary>
+                Registers a given instance for a given type and a given key.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="key">The key for which the given instance is registered.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Register``1(System.Func{``0},System.String,System.Boolean)">
+            <summary>
+                Registers a given instance for a given type and a given key with the possibility for immediate
+                creation of the instance.
+            </summary>
+            <typeparam name="TClass">The type that is being registered.</typeparam>
+            <param name="factory">
+                The factory method able to create the instance that
+                must be returned when the given type is resolved.
+            </param>
+            <param name="key">The key for which the given instance is registered.</param>
+            <param name="createInstanceImmediately">
+                If true, forces the creation of the default
+                instance of the provided class.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Reset">
+            <summary>
+                Resets the instance in its original states. This deletes all the
+                registrations.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Unregister``1">
+            <summary>
+                Unregisters a class from the cache and removes all the previously
+                created instances.
+            </summary>
+            <typeparam name="TClass">The class that must be removed.</typeparam>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Unregister(System.Type)">
+            <summary>
+                Unregisters a class from the cache and removes all the previously
+                created instances.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Unregister``1(``0)">
+            <summary>
+                Removes the given instance from the cache. The class itself remains
+                registered and can be used to create other instances.
+            </summary>
+            <typeparam name="TClass">The type of the instance to be removed.</typeparam>
+            <param name="instance">The instance that must be removed.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Unregister``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.Unregister(System.Type,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetAllCreatedInstances(System.Type)">
+            <summary>
+                Provides a way to get all the created instances of a given type available in the
+                cache. Registering a class or a factory does not automatically
+                create the corresponding instance! To create an instance, either register
+                the class or the factory with createInstanceImmediately set to true,
+                or call the GetInstance method before calling GetAllCreatedInstances.
+                Alternatively, use the GetAllInstances method, which auto-creates default
+                instances for all registered classes.
+            </summary>
+            <param name="serviceType">
+                The class of which all instances
+                must be returned.
+            </param>
+            <returns>All the already created instances of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetAllCreatedInstances``1">
+            <summary>
+                Provides a way to get all the created instances of a given type available in the
+                cache. Registering a class or a factory does not automatically
+                create the corresponding instance! To create an instance, either register
+                the class or the factory with createInstanceImmediately set to true,
+                or call the GetInstance method before calling GetAllCreatedInstances.
+                Alternatively, use the GetAllInstances method, which auto-creates default
+                instances for all registered classes.
+            </summary>
+            <typeparam name="TService">
+                The class of which all instances
+                must be returned.
+            </typeparam>
+            <returns>All the already created instances of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetService(System.Type)">
+            <summary>
+                Gets the service object of the specified type.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type serviceType has not
+                been registered before calling this method.
+            </exception>
+            <returns>
+                A service object of type <paramref name="serviceType" />.
+            </returns>
+            <param name="serviceType">An object that specifies the type of service object to get.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetAllInstances(System.Type)">
+            <summary>
+                Provides a way to get all the created instances of a given type available in the
+                cache. Calling this method auto-creates default
+                instances for all registered classes.
+            </summary>
+            <param name="serviceType">
+                The class of which all instances
+                must be returned.
+            </param>
+            <returns>All the instances of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetAllInstances``1">
+            <summary>
+                Provides a way to get all the created instances of a given type available in the
+                cache. Calling this method auto-creates default
+                instances for all registered classes.
+            </summary>
+            <typeparam name="TService">
+                The class of which all instances
+                must be returned.
+            </typeparam>
+            <returns>All the instances of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstance(System.Type)">
+            <summary>
+                Provides a way to get an instance of a given type. If no instance had been instantiated
+                before, a new instance will be created. If an instance had already
+                been created, that same instance will be returned.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type serviceType has not
+                been registered before calling this method.
+            </exception>
+            <param name="serviceType">
+                The class of which an instance
+                must be returned.
+            </param>
+            <returns>An instance of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstanceWithoutCaching(System.Type)">
+            <summary>
+                Provides a way to get an instance of a given type. This method
+                always returns a new instance and doesn't cache it in the IOC container.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type serviceType has not
+                been registered before calling this method.
+            </exception>
+            <param name="serviceType">
+                The class of which an instance
+                must be returned.
+            </param>
+            <returns>An instance of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstance(System.Type,System.String)">
+            <summary>
+                Provides a way to get an instance of a given type corresponding
+                to a given key. If no instance had been instantiated with this
+                key before, a new instance will be created. If an instance had already
+                been created with the same key, that same instance will be returned.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type serviceType has not
+                been registered before calling this method.
+            </exception>
+            <param name="serviceType">The class of which an instance must be returned.</param>
+            <param name="key">The key uniquely identifying this instance.</param>
+            <returns>An instance corresponding to the given type and key.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstanceWithoutCaching(System.Type,System.String)">
+            <summary>
+                Provides a way to get an instance of a given type. This method
+                always returns a new instance and doesn't cache it in the IOC container.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type serviceType has not
+                been registered before calling this method.
+            </exception>
+            <param name="serviceType">The class of which an instance must be returned.</param>
+            <param name="key">The key uniquely identifying this instance.</param>
+            <returns>An instance corresponding to the given type and key.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstance``1">
+            <summary>
+                Provides a way to get an instance of a given type. If no instance had been instantiated
+                before, a new instance will be created. If an instance had already
+                been created, that same instance will be returned.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type TService has not
+                been registered before calling this method.
+            </exception>
+            <typeparam name="TService">
+                The class of which an instance
+                must be returned.
+            </typeparam>
+            <returns>An instance of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstanceWithoutCaching``1">
+            <summary>
+                Provides a way to get an instance of a given type. This method
+                always returns a new instance and doesn't cache it in the IOC container.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type TService has not
+                been registered before calling this method.
+            </exception>
+            <typeparam name="TService">
+                The class of which an instance
+                must be returned.
+            </typeparam>
+            <returns>An instance of the given type.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstance``1(System.String)">
+            <summary>
+                Provides a way to get an instance of a given type corresponding
+                to a given key. If no instance had been instantiated with this
+                key before, a new instance will be created. If an instance had already
+                been created with the same key, that same instance will be returned.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type TService has not
+                been registered before calling this method.
+            </exception>
+            <typeparam name="TService">The class of which an instance must be returned.</typeparam>
+            <param name="key">The key uniquely identifying this instance.</param>
+            <returns>An instance corresponding to the given type and key.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IoC.SimpleIoc.GetInstanceWithoutCaching``1(System.String)">
+            <summary>
+                Provides a way to get an instance of a given type. This method
+                always returns a new instance and doesn't cache it in the IOC container.
+            </summary>
+            <exception cref="T:Microsoft.Practices.ServiceLocation.ActivationException">
+                If the type TService has not
+                been registered before calling this method.
+            </exception>
+            <typeparam name="TService">The class of which an instance must be returned.</typeparam>
+            <param name="key">The key uniquely identifying this instance.</param>
+            <returns>An instance corresponding to the given type and key.</returns>
+        </member>
+        <member name="T:CrossPlatformLibrary.IoC.UseCacheAttribute">
+            <summary>
+            When used with the SimpleIoc container, this annotation can be used 
+            to mark interfaces which shall not be cached in the instances cache of SimpleIoc.
+            Every attempt to construct a dependency of a marked interface will end up
+            in creating a new object from scratch.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Dispatching.IDispatcherService.CheckBeginInvokeOnUI(System.Action)">
+            <summary>
+                Executes an action on the UI thread. If this method is called
+                from the UI thread, the action is executed immendiately. If the
+                method is called from another thread, the action will be enqueued
+                on the UI thread's dispatcher and executed asynchronously.
+                <para>
+                    For additional operations on the UI thread, you can get a
+                    reference to the UI thread's dispatcher thanks to the property
+                    <see cref="!:DispatcherService.UIDispatcher" />
+                </para>
+                .
+            </summary>
+            <param name="action">
+                The action that will be executed on the UI
+                thread.
+            </param>
+        </member>
+        <member name="T:CrossPlatformLibrary.ExceptionHandling.AsyncSynchronizationContext">
+            <summary>
+                AsyncSynchronizationContext helps handling unhandled exceptions with async/await.
+                Source:
+                http://www.markermetro.com/2013/01/technical/handling-unhandled-exceptions-with-asyncawait-on-windows-8-and-windows-phone-8/
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.ExceptionHandling.IExceptionHandler">
+            <summary>
+            Provides an interface to handle any <see cref="T:System.Exception"/> that is not handled by the application.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.ExceptionHandling.IExceptionHandler.HandleException(System.Exception)">
+            <summary>
+            Handles the specified <paramref name="exception"/>.
+            </summary>
+            <param name="exception">The exception to handle.</param>
+            <returns><c>True</c> if the specified <paramref name="exception"/> was successfully handled; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:CrossPlatformLibrary.ExceptionHandling.Handlers.RethrowExceptionHandler">
+            <summary>
+            Provides an <see cref="T:CrossPlatformLibrary.ExceptionHandling.IExceptionHandler"/> that always returns <c>false</c>.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.ExceptionHandling.Handlers.RethrowExceptionHandler.HandleException(System.Exception)">
+            <summary>
+            Handles the specified <paramref name="exception"/>.
+            </summary>
+            <param name="exception">The exception to handle.</param>
+            <exception cref="T:System.Exception">The specified <paramref name="exception"/> is always thrown;
+            expect the <paramref name="exception"/> parameter is <c>null</c>.</exception>
+            <returns><c>True</c> if the specified <paramref name="exception"/> was successfully handled; otherwise, <c>false</c>.</returns>
+            <remarks>The <see cref="T:CrossPlatformLibrary.ExceptionHandling.Handlers.RethrowExceptionHandler"/> always returns <c>false</c> meaning the <paramref name="exception"/> was
+            not handled and should be rethrown.</remarks>
+        </member>
+        <member name="T:CrossPlatformLibrary.ExceptionHandling.Handlers.TracingExceptionHandler">
+            <summary>
+            Provides a <see cref="T:CrossPlatformLibrary.ExceptionHandling.IExceptionHandler"/> that traces the exception as FatalError to an <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/>.
+            Exceptions are always rethrown. 
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.IO.ResourceLoader">
+            <summary>
+                Utility class that can be used to find and load embedded resources into memory.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.IO.ResourceLoader.GetEmbeddedResourceStream(System.Reflection.Assembly,System.String)">
+            <summary>
+                Attempts to find and return the given resource from within the specified assembly.
+            </summary>
+            <returns>The embedded resource stream.</returns>
+            <param name="assembly">Assembly.</param>
+            <param name="resourceFileName">Resource file name.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IO.ResourceLoader.GetEmbeddedResourceBytes(System.Reflection.Assembly,System.String)">
+            <summary>
+                Attempts to find and return the given resource from within the specified assembly.
+            </summary>
+            <returns>The embedded resource as a byte array.</returns>
+            <param name="assembly">Assembly.</param>
+            <param name="resourceFileName">Resource file name.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IO.ResourceLoader.GetEmbeddedResourceString(System.Reflection.Assembly,System.String)">
+            <summary>
+                Attempts to find and return the given resource from within the specified assembly.
+            </summary>
+            <returns>The embedded resource as a string.</returns>
+            <param name="assembly">Assembly.</param>
+            <param name="resourceFileName">Resource file name.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.IO.XmlSerializerHelper.SerializeToXml(System.Object,System.Boolean)">
+            <summary>
+            Serializes objects into XML strings.
+            </summary>
+            <param name="value">The object to be serialized.</param>
+            <param name="preserveTypeInformation">
+            Instructs the serializer to preserve the original type of the given value.
+            This flag must be set to <value>true</value> when you intend to deserialize to an interface type.
+            Default value is <value>false</value>..</param>
+            <returns>The serialized XML string.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.IO.XmlSerializerHelper.DeserializeFromXml``1(System.String)">
+            <summary>
+            Deserializes XML strings into objects of given type T.
+            </summary>
+            <typeparam name="T">Target type T.</typeparam>
+            <param name="xmlString">The serialized XML string.</param>
+            <returns>An object of type T.</returns>
+        </member>
+        <member name="F:CrossPlatformLibrary.Media.Color.ARGBAlphaShift">
+            Shift count and bit mask for A, R, G, B components in ARGB mode!
+        </member>
+        <member name="M:CrossPlatformLibrary.Media.ColorExtensions.GetRandom(CrossPlatformLibrary.Media.Color,System.Double,System.Double)">
+            <summary>
+                Returns a random color within a brightness boundry.
+            </summary>
+            <param name="source">Ignored (Use GetRandomShade to get a random shade of the color).</param>
+            <param name="minBrightness">A valued from 0.0 to 1.0, 0 is darkest and 1 is lightest.</param>
+            <param name="maxBrightness">The max Brightness.</param>
+            <returns>The <see cref="T:CrossPlatformLibrary.Media.Color" />.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Media.ColorExtensions.GetRandomShade(CrossPlatformLibrary.Media.Color)">
+            <summary>
+                Returns a random shade of the color.
+            </summary>
+            <param name="source">Base color for the returned shade.</param>
+            <returns>The <see cref="T:CrossPlatformLibrary.Media.Color" />.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Media.ColorExtensions.GetRandomShade(CrossPlatformLibrary.Media.Color,System.Double,System.Double)">
+            <summary>
+                Returns a random color within a brightness boundry.
+            </summary>
+            <param name="source">Base color for the returned shade.</param>
+            <param name="minBrightness">A valued from 0.0 to 1.0, 0 is brightest and 1 is lightest.</param>
+            <param name="maxBrightness">The max Brightness.</param>
+            <returns>The <see cref="T:CrossPlatformLibrary.Media.Color" />.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Media.ColorExtensions.ConvertToRGB(CrossPlatformLibrary.Media.ColorExtensions.HSB)">
+            <summary>
+                The convert to rgb.
+            </summary>
+            <param name="hsb">The hsb.</param>
+            <returns>The <see cref="T:CrossPlatformLibrary.Media.ColorExtensions.RGB" />.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Media.ColorExtensions.GenerateColor(CrossPlatformLibrary.Media.Color,System.Boolean,CrossPlatformLibrary.Media.ColorExtensions.HSB,CrossPlatformLibrary.Media.ColorExtensions.HSB)">
+            <summary>
+                Process parameters and returns a color.
+            </summary>
+            <param name="source">Color source.</param>
+            <param name="isaShadeOfSource">Should source be used to generate the new color.</param>
+            <param name="min">Minimum range for HSB.</param>
+            <param name="max">Maximum range for HSB.</param>
+            <returns>The <see cref="T:CrossPlatformLibrary.Media.Color" />.</returns>
+        </member>
+        <member name="T:CrossPlatformLibrary.Media.ColorExtensions.HSB">
+            <summary>
+                The hue-saturation-brightness struct.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.Media.ColorExtensions.RGB">
+            <summary>
+                The red-green-blue color range.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.Tools.IPlatformServices">
+            <summary>
+            Provides general platform services.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tools.IPlatformServices.GetAssemblies">
+            <summary>
+            Returns a list of all loaded assemblies.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tools.IPlatformServices.LoadReferencedAssemblies">
+            <summary>
+            LoadReferencedAssemblies makes sure that all assemblies which are referenced
+            are also loaded.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tools.PlatformServicesBase.GetAssemblies">
+              <summary> 
+            Returns all assemblies currently loaded in current AppDomain.
+            Source: https://forums.xamarin.com/discussion/21255/device-getassemblies
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.Tracing.ActionTracer">
+            <summary>
+            ActionTracer can be used to intercept trace writes.
+            The defined forwardingAction is called whenever a trace is written to the ITracer interface.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.Tracing.DebugTracer">
+            <summary>
+            DebugTracer is a tracer instance which writes trace entries to the
+            trace listeners in the <see cref="P:System.Diagnostics.Debug.Listeners"/> collection.
+            
+            In Visual Studio > Tools > Debugging > General, the setting for "Redirect all Output Window text to the Immediate Window" needs to be checked,
+            in order to see Debug.Writeline messages.
+            </summary>
+        </member>
+        <member name="T:CrossPlatformLibrary.Tracing.EmptyTracer">
+            <summary>
+            EmptyTracer is - as the name implies - a tracer instance which ignores all trace writes.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.ITracerFactory.Create(System.String)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the specified <paramref name="name"/>.
+            </summary>
+            <param name="name">The name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="name"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="name"/> parameter is an empty string.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.ITracerFactory.Create(System.Type)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <paramref name="type"/>.
+            </summary>
+            <param name="type">The type whose fully qualified type name is used as the name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="type"/> parameter is <c>null</c>.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.ITracerFactory.Create``1">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type whose fully qualified type name is used as the name of the tracer.</typeparam>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TraceEntry.#ctor(CrossPlatformLibrary.Tracing.Category,System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:CrossPlatformLibrary.Tracing.TraceEntry"/> class.
+            </summary>
+            <param name="category">The category this trace entry belongs to.</param>
+            <param name="message">The message to trace.</param>
+            <param name="arguments">The arguments used to format the <paramref name="message"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="message"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="message"/> parameter is an empty string.</exception>
+            <exception cref="T:System.FormatException">The <paramref name="message"/> is invalid for formatting.
+            -or- The number indicating an argument to format is less than zero, or greater than or equal to the length of the <paramref name="arguments"/> array.</exception>
+            <remarks>The <paramref name="message"/> is formatted using the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.</remarks>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TraceEntry.#ctor(CrossPlatformLibrary.Tracing.Category,System.Exception,System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:CrossPlatformLibrary.Tracing.TraceEntry"/> class.
+            </summary>
+            <param name="category">The category this trace entry belongs to.</param>
+            <param name="exception">The exception that produced this trace entry.</param>
+            <param name="message">The message to trace.</param>
+            <param name="arguments">The arguments used to format the <paramref name="message"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="message"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="message"/> parameter is an empty string.</exception>
+            <exception cref="T:System.FormatException">The <paramref name="message"/> is invalid for formatting.
+            -or- The number indicating an argument to format is less than zero, or greater than or equal to the length of the <paramref name="arguments"/> array.</exception>
+            <remarks>The <paramref name="message"/> is formatted using the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.</remarks>
+        </member>
+        <member name="P:CrossPlatformLibrary.Tracing.TraceEntry.Category">
+            <summary>
+            Gets the category this trace entry belongs to.
+            </summary>
+            <value>The category this trace entry belongs to.</value>
+        </member>
+        <member name="P:CrossPlatformLibrary.Tracing.TraceEntry.Exception">
+            <summary>
+            Gets the exception that produced this trace entry.
+            </summary>
+            <value>The exception that produced this trace entry.</value>
+        </member>
+        <member name="P:CrossPlatformLibrary.Tracing.TraceEntry.Message">
+            <summary>
+            Gets the message to trace.
+            </summary>
+            <value>The message to trace.</value>
+        </member>
+        <member name="T:CrossPlatformLibrary.Tracing.Tracer">
+            <summary>
+            Provides tracing functionality and encapsulates the concrete tracing implementation.
+            </summary>
+        </member>
+        <member name="P:CrossPlatformLibrary.Tracing.Tracer.Factory">
+            <summary>
+            Gets the configured <see cref="T:CrossPlatformLibrary.Tracing.ITracerFactory"/>.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.Tracer.SetDefaultFactory(CrossPlatformLibrary.Tracing.ITracerFactory)">
+            <summary>
+            Sets the default tracer factory <see cref="T:CrossPlatformLibrary.Tracing.ITracerFactory"/> to use within the <see cref="T:CrossPlatformLibrary.Tracing.Tracer"/>. 
+            </summary>
+            <param name="factory">The <see cref="T:CrossPlatformLibrary.Tracing.ITracerFactory"/> to use within the <see cref="T:CrossPlatformLibrary.Tracing.Tracer"/>.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.Tracer.SetFactory(CrossPlatformLibrary.Tracing.ITracerFactory)">
+            <summary>
+            Sets the concrete <see cref="T:CrossPlatformLibrary.Tracing.ITracerFactory"/> to use within the <see cref="T:CrossPlatformLibrary.Tracing.Tracer"/>. 
+            </summary>
+            <param name="factory">The <see cref="T:CrossPlatformLibrary.Tracing.ITracerFactory"/> to use within the <see cref="T:CrossPlatformLibrary.Tracing.Tracer"/>.</param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.Tracer.Create(System.String)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the specified <paramref name="tracerName"/>.
+            </summary>
+            <param name="tracerName">The name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="tracerName"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="tracerName"/> parameter is an empty string.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.Tracer.Create(System.Type)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <paramref name="tracerType"/>.
+            </summary>
+            <param name="tracerType">The type whose fully qualified type name is used as the name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="tracerType"/> parameter is <c>null</c>.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.Tracer.Create``1(``0)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <typeparamref name="T"/>.
+            </summary>
+            <example>Call <code>ITracer tracer = Tracer.Create(this); in order to create a new ITracer instance named by the type of 'this'.</code></example>
+            <param name="tracerTarget">This parameter can be ignored. We're only interested in the type of the object.</param>
+            <typeparam name="T">The type whose fully qualified type name is used as the name of the tracer.</typeparam>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerBase.Write(CrossPlatformLibrary.Tracing.Category,System.String,System.Object[])">
+            <summary>
+            Traces a new trace entry with the specified message.
+            </summary>
+            <param name="category">The category this trace entry belongs to.</param>
+            <param name="message">The message to trace.</param>
+            <param name="arguments">The arguments used to format the <paramref name="message"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="message"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="message"/> parameter is an empty string.</exception>
+            <exception cref="T:System.FormatException">The <paramref name="message"/> is invalid for formatting.
+            -or- The number indicating an argument to format is less than zero, or greater than or equal to the length of the <paramref name="arguments"/> array.</exception>
+            <remarks>The <paramref name="message"/> is formatted using the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.</remarks>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerBase.Write(CrossPlatformLibrary.Tracing.Category,System.Exception,System.String,System.Object[])">
+            <summary>
+            Traces a new trace entry with the specified message.
+            </summary>
+            <param name="category">The category this trace entry belongs to.</param>
+            <param name="exception">The exception that produced this trace entry.</param>
+            <param name="message">The message to trace.</param>
+            <param name="arguments">The arguments used to format the <paramref name="message"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="message"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="message"/> parameter is an empty string.</exception>
+            <exception cref="T:System.FormatException">The <paramref name="message"/> is invalid for formatting.
+            -or- The number indicating an argument to format is less than zero, or greater than or equal to the length of the <paramref name="arguments"/> array.</exception>
+            <remarks>The <paramref name="message"/> is formatted using the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.</remarks>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerBase.Write(CrossPlatformLibrary.Tracing.TraceEntry)">
+            <summary>
+            Traces the specified <paramref name="entry"/>.
+            </summary>
+            <param name="entry">The trace entry to trace.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entry"/> parameter is <c>null</c>.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerBase.WriteCore(CrossPlatformLibrary.Tracing.TraceEntry)">
+            <summary>
+            Traces the specified <paramref name="entry"/>. This is the core method which is called from all public Write methods.
+            The Check if <paramref name="entry"/> is not null and if <see cref="M:CrossPlatformLibrary.Tracing.TracerBase.IsCategoryEnabled(CrossPlatformLibrary.Tracing.Category)"/> is already done.
+            </summary>
+            <param name="entry">The trace entry to trace.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entry"/> parameter is <c>null</c>.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerBase.IsCategoryEnabled(CrossPlatformLibrary.Tracing.Category)">
+            <summary>
+            Determines whether the specified <paramref name="category"/> is enabled.
+            </summary>
+            <param name="category">The category to check if it is enabled.</param>
+            <returns><c>True</c> if the specified <paramref name="category"/> is enabled; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerExtensions.FatalError(CrossPlatformLibrary.Tracing.ITracer,System.Exception)">
+            <summary>
+            This call is used when the application is about to crash.
+            There is usually only limited time and resources to report a fatal error.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerFactoryBase.Create(System.String)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the specified <paramref name="name"/>.
+            </summary>
+            <param name="name">The name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="name"/> parameter is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="name"/> parameter is an empty string.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerFactoryBase.Create(System.Type)">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <paramref name="type"/>.
+            </summary>
+            <param name="type">The type whose fully qualified type name is used as the name of the tracer.</param>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="type"/> parameter is <c>null</c>.</exception>
+        </member>
+        <member name="M:CrossPlatformLibrary.Tracing.TracerFactoryBase.Create``1">
+            <summary>
+            Creates a <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> whose name is set to the <see cref="P:System.Type.FullName"/> of the specified <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type whose fully qualified type name is used as the name of the tracer.</typeparam>
+            <returns>A new <see cref="T:CrossPlatformLibrary.Tracing.ITracer"/> instance.</returns>
+        </member>
+    </members>
+</doc>

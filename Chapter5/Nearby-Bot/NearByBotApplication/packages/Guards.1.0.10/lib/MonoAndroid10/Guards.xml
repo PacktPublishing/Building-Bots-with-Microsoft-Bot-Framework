@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Guards</name>
+    </assembly>
+    <members>
+        <member name="M:Guards.Guard.ArgumentNotNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.Collections.IEnumerable}})">
+            <summary>
+                Checks if the given string is not null or empty.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNotNullOrEmpty(System.Collections.IEnumerable,System.String)">
+            <summary>
+                Checks if the given string is not null or empty.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNotNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.String}})">
+            <summary>
+                Checks if the given string is not null or empty.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNotNullOrEmpty(System.String,System.String)">
+            <summary>
+                Checks if the given string is not null or empty.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentHasLength(System.Linq.Expressions.Expression{System.Func{System.String}},System.Int32)">
+            <summary>
+            Checks if the given string has the expected length
+            </summary>
+            <param name="expression"></param>
+            <param name="expectedLength"></param>
+        </member>
+        <member name="M:Guards.Guard.ArgumentHasMaxLength(System.Linq.Expressions.Expression{System.Func{System.String}},System.Int32)">
+            <summary>
+            Checks if the given string has a length which exceeds given max length.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentHasMinLength(System.Linq.Expressions.Expression{System.Func{System.String}},System.Int32)">
+            <summary>
+            Checks if the given string has a length which is at least given min length long.
+            </summary>
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsGreaterThan``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)">
+            <summary>
+            Checks if given argument is greater than given value.
+            </summary>
+            <param name="expression">Given argument</param>
+            <param name="givenValue">Given value.</param>        
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsGreaterOrEqual``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)">
+            <summary>
+            Checks if given argument is greater or equal to given value.
+            </summary>
+            <param name="argument">Given argument</param>
+            <param name="givenValue">Given value.</param>   
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsLowerThan``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)">
+            <summary>
+            Checks if given argument is lower than given value.
+            </summary>
+            <param name="argument">Given argument</param>
+            <param name="givenValue">Given value.</param>   
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsLowerOrEqual``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)">
+            <summary>
+            Checks if given argument is lower or equal to given value.
+            </summary>
+            <param name="argument">Given argument</param>
+            <param name="givenValue">Given value.</param>   
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsBetween``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0,System.Boolean)">
+            <summary>
+            Checks if given argument is between given lower value and upper value.
+            </summary>
+            <param name="argument">Given argument</param>
+            <param name="lowerBound"></param>
+            <param name="upperBound"></param>
+            <param name="inclusive">Inclusive lower bound value if <param name="inclusive">true</param>.</param>   
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsNotNegative``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Verifies the <paramref name="expression"/> is not a negative number and throws an
+                <see cref="T:System.ArgumentOutOfRangeException"/> if it is a negative number.
+            </summary>
+            <param name="expression">An expression containing a single parameter e.g. () =&gt; param</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="expression"/> parameter is a negative number.</exception>
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsNotNegative``1(``0,System.String)">
+            <summary>
+                Checks if <paramref name="argumentValue"/> is not a negative number.
+            </summary>
+            <param name="argumentValue">The value to verify.</param>
+            <param name="argumentName">The name of the <paramref name="argumentValue"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="argumentValue"/> parameter is a negative number.</exception>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNull``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Checks if the given value is not null.
+            </summary>
+            <example>
+                Only pass single parameters through to this call via expression, e.g. Guard.ArgumentNotNull(() => someParam)
+            </example>
+            <param name="expression">An expression containing a single string parameter e.g. () => someParam</param>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNull``1(``0,System.String)">
+            <summary>
+                Checks if the given value is not null.
+            </summary>
+            <example>
+                Only pass single parameters through to this call via expression, e.g. Guard.ArgumentNotNull(value, "value")
+            </example>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNotNull``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Checks if the given value is not null.
+            </summary>
+            <example>
+                Only pass single parameters through to this call via expression, e.g. Guard.ArgumentNotNull(() => someParam)
+            </example>
+            <param name="expression">An expression containing a single string parameter e.g. () => someParam</param>
+        </member>
+        <member name="M:Guards.Guard.ArgumentNotNull``1(``0,System.String)">
+            <summary>
+                Checks if the given value is not null.
+            </summary>
+            <example>
+                Only pass single parameters through to this call via expression, e.g. Guard.ArgumentNotNull(value, "value")
+            </example>
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsTrue(System.Linq.Expressions.Expression{System.Func{System.Boolean}})">
+            <summary>
+            Checks if the given <paramref name="expression"/> is true.
+            </summary>
+            <exception cref="T:System.ArgumentException">The <paramref name="expression"/> parameter is false.</exception>
+        </member>
+        <member name="M:Guards.Guard.ArgumentIsFalse(System.Linq.Expressions.Expression{System.Func{System.Boolean}})">
+            <summary>
+            Checks if the given <paramref name="expression"/> is false.
+            </summary>
+            <exception cref="T:System.ArgumentException">The <paramref name="expression"/> parameter is true.</exception>
+        </member>
+        <member name="M:Guards.Guard.ArgumentMustBeInterface(System.Type)">
+            <summary>
+            Checks if the given <paramref name="type"/> is an interface type.
+            </summary>
+            <exception cref="T:System.ArgumentException">The <paramref name="type"/> parameter is not an interface type.</exception>
+        </member>
+        <member name="M:Guards.Guard.ArgumentMustNotBeInterface(System.Type)">
+            <summary>
+            Checks if the given <paramref name="type"/> is not an interface type.
+            </summary>
+            <exception cref="T:System.ArgumentException">The <paramref name="type"/> parameter is an interface type.</exception>
+        </member>
+        <member name="T:Guards.ValidatedNotNullAttribute">
+            <summary>
+            ValidatedNotNullAttribute signals to static code analysis (CA1062)
+            to trust that we're really checking the marked parameters for null references.
+            </summary>
+        </member>
+    </members>
+</doc>

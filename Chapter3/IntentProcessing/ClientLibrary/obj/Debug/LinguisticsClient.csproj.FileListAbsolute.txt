@@ -1,0 +1,33 @@
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\obj\Debug\LinguisticsClient.csprojResolveAssemblyReference.cache
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\CognitiveServices\ProjectOxford-ClientSDK\LinguisticAnalysis\Windows\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\NearByBotApplication\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\NearByBotApplication\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Bots\NearByBotApplication\ClientLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\Bots\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\Bots\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Bots\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\Bots\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\Bots\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\obj\Debug\LinguisticsClient.csprojResolveAssemblyReference.cache
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.dll
+D:\IsmacRepos\Natural Speech and Intent Processing\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\bin\Debug\Microsoft.ProjectOxford.Linguistics.pdb
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\bin\Debug\Newtonsoft.Json.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\obj\Debug\LinguisticsClient.csprojResolveAssemblyReference.cache
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter3\IntentProcessing\ClientLibrary\obj\Debug\Microsoft.ProjectOxford.Linguistics.pdb

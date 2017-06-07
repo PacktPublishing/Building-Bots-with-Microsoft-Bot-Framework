@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CrossPlatformLibrary.Platform</name>
+    </assembly>
+    <members>
+        <member name="P:CrossPlatformLibrary.Dispatching.DispatcherService.UIDispatcher">
+            <summary>
+                Gets a reference to the UI thread's dispatcher, after the
+                <see cref="M:CrossPlatformLibrary.Dispatching.DispatcherService.Initialize" /> method has been called on the UI thread.
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Dispatching.DispatcherService.CheckBeginInvokeOnUI(System.Action)">
+            <summary>
+                Executes an action on the UI thread. If this method is called
+                from the UI thread, the action is executed immendiately. If the
+                method is called from another thread, the action will be enqueued
+                on the UI thread's dispatcher and executed asynchronously.
+                <para>
+                    For additional operations on the UI thread, you can get a
+                    reference to the UI thread's dispatcher thanks to the property
+                    <see cref="P:CrossPlatformLibrary.Dispatching.DispatcherService.UIDispatcher" />
+                </para>
+                .
+            </summary>
+            <param name="action">
+                The action that will be executed on the UI
+                thread.
+            </param>
+        </member>
+        <member name="M:CrossPlatformLibrary.Dispatching.DispatcherService.RunAsync(System.Action)">
+            <summary>
+                Invokes an action asynchronously on the UI thread.
+            </summary>
+            <param name="action">The action that must be executed.</param>
+            <returns>
+                An object, which is returned immediately after BeginInvoke is called, that can be used to interact
+                with the delegate as it is pending execution in the event queue.
+            </returns>
+        </member>
+        <member name="M:CrossPlatformLibrary.Dispatching.DispatcherService.Initialize">
+            <summary>
+                This method should be called once on the UI thread to ensure that
+                the <see cref="P:CrossPlatformLibrary.Dispatching.DispatcherService.UIDispatcher" /> property is initialized.
+                <para>
+                    In a Silverlight application, call this method in the
+                    Application_Startup event handler, after the MainPage is constructed.
+                </para>
+                <para>In WPF, call this method on the static App() constructor.</para>
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Dispatching.DispatcherService.Reset">
+            <summary>
+                Resets the class by deleting the <see cref="P:CrossPlatformLibrary.Dispatching.DispatcherService.UIDispatcher" />
+            </summary>
+        </member>
+        <member name="M:CrossPlatformLibrary.Extensions.PointExtensions.GetDistanceTo(System.Windows.Point,System.Windows.Point)">
+            <summary>
+                Computes the cartesian distance between points.
+            </summary>
+            <param name="p1">The p 1.</param>
+            <param name="p2">The p 2.</param>
+            <returns>The <see cref="T:System.Double" />.</returns>
+        </member>
+    </members>
+</doc>

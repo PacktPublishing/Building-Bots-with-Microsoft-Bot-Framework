@@ -1,0 +1,39 @@
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Bot Application1.dll.config
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Bot Application1.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Bot Application1.pdb
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Autofac.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Chronic.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Bot.Builder.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Bot.Connector.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Rest.ClientRuntime.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.WindowsAzure.Configuration.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Newtonsoft.Json.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Net.Http.Formatting.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Web.Http.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Web.Http.WebHost.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Autofac.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Bot.Builder.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Bot.Connector.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.Rest.ClientRuntime.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Microsoft.WindowsAzure.Configuration.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\Newtonsoft.Json.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.IdentityModel.Tokens.Jwt.pdb
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Net.Http.Formatting.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Web.Http.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\System.Web.Http.WebHost.xml
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\en\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\es\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\obj\Debug\EmployeeEnrolBot.csprojResolveAssemblyReference.cache
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\obj\Debug\Bot Application1.dll
+E:\Building Bots with Microsoft Bot Framework\Code Bundle\Chapter5\EmployeeEnrolBot\EmployeeEnrolBot\obj\Debug\Bot Application1.pdb

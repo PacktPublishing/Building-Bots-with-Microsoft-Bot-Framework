@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "EchoBot_Stateless", "EchoBot_Stateless\EchoBot_Stateless.sfproj", "{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoBot_Stateless_API", "EchoBot_Stateless\EchoBot_Stateless_API\EchoBot_Stateless_API.csproj", "{692EF9EA-10CD-499B-87F3-C9C1E62650B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Debug|x64.ActiveCfg = Debug|x64
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Debug|x64.Build.0 = Debug|x64
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Debug|x64.Deploy.0 = Debug|x64
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Release|x64.ActiveCfg = Release|x64
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Release|x64.Build.0 = Release|x64
+		{4CA75931-2646-4DB8-9463-AB3DE04AEDD6}.Release|x64.Deploy.0 = Release|x64
+		{692EF9EA-10CD-499B-87F3-C9C1E62650B6}.Debug|x64.ActiveCfg = Debug|x64
+		{692EF9EA-10CD-499B-87F3-C9C1E62650B6}.Debug|x64.Build.0 = Debug|x64
+		{692EF9EA-10CD-499B-87F3-C9C1E62650B6}.Release|x64.ActiveCfg = Release|x64
+		{692EF9EA-10CD-499B-87F3-C9C1E62650B6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
