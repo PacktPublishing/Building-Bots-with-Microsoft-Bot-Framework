@@ -1,2 +1,40 @@
-# Building-Bots-with-Microsoft-Bot-Framework
-Building Bots with Microsoft Bot Framework, published by Packt
+# Building Bots with Microsoft Bot Framework
+
+This is the code repository for [Building Bots with Microsoft Bot Framework](https://www.packtpub.com/application-development/building-bots-microsoft-bot-framework?utm_source=github&utm_medium=repository&utm_campaign=9781786463104), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the book from start to finish.
+
+## About the Book
+Bots help users to use the language as a UI and interact with the applications from any platform. This book teaches you how to develop real-world bots using Microsoft Bot Framework.
+
+The book starts with setting up the Microsoft Bot Framework development environment and emulator, and moves on to building the first bot using Connector and Builder SDK. Explore how to register, connect, test, and publish your bot to the Slack, Skype, and Facebook Messenger platforms.
+
+Throughout this book, you will build different types of bots from simple to complex, such as a weather bot, a natural speech and intent processing bot, an Interactive Voice Response (IVR) bot for a bank, a facial expression recognition bot, and more from scratch.
+
+These bots were designed and developed to teach you concepts such as text detection, implementing LUIS dialogs, Cortana Intelligence Services, third-party authentication, Rich Text format, Bot State Service, and microServices so you can practice working with the standard development tools such as Visual Studio, Bot Emulator, and Azure.
+
+## Instructions and Navigation
+All of the code is organized into folders. Each folder starts with a number followed by the application name. For example, Chapter02.
+
+
+
+The code will look like the following:
+```
+private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<Object> argument)
+        {
+context.Wait(MessageReceivedAsync);
+}
+
+```
+
+
+
+
+## Related Products
+* [Building Bots with Node.js](https://www.packtpub.com/application-development/building-bots-nodejs?utm_source=github&utm_medium=repository&utm_campaign=9781786465450)
+
+* [Understanding Bot Framework [Video]](https://www.packtpub.com/application-development/understanding-bot-framework-video?utm_source=github&utm_medium=repository&utm_campaign=9781788291323)
+
+* [Building Slack Bots](https://www.packtpub.com/application-development/building-slack-bots?utm_source=github&utm_medium=repository&utm_campaign=9781786460806)
+
+### Suggestions and Feedback
+[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
+
